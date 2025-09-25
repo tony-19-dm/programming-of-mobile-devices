@@ -237,14 +237,17 @@
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:orientation="vertical"
-                    android:padding="16dp">
+                    android:padding="16dp"
+                    android:background="@color/primary">
 
                     <ImageView
                         android:id="@+id/ivZodiac"
                         android:layout_width="48dp"
                         android:layout_height="48dp"
                         android:src="@drawable/apple"
-                        android:contentDescription="Знак зодиака"/>
+                        android:contentDescription="Знак зодиака"
+                        android:background="@color/primary"
+                        />
 
                     <TextView
                         android:id="@+id/tvZodiacName"
@@ -253,7 +256,7 @@
                         android:layout_marginTop="8dp"
                         android:text="Не выбран"
                         android:textAlignment="center"
-                        android:textColor="@color/primary"
+                        android:textColor="@color/on_primary"
                         android:textSize="12sp"/>
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
