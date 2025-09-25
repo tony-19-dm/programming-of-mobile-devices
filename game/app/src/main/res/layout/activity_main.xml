@@ -21,6 +21,7 @@
         app:titleTextColor="@color/on_primary" />
 
     <ScrollView
+        android:id="@+id/scrollView"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:fillViewport="true"

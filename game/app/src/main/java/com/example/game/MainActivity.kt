@@ -2,14 +2,15 @@ package com.example.game
 
 import Player
 import android.os.Bundle
+import android.view.View
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import java.util.*
 import android.widget.*
+import com.google.android.material.card.MaterialCardView
 import java.text.SimpleDateFormat
-
 
 class MainActivity : AppCompatActivity() {
 
@@ -165,17 +166,26 @@ class MainActivity : AppCompatActivity() {
         val birthDateStr = dateFormat.format(Date(player.birthDate))
 
         val resultText = """
-            Регистрация завершена!
-            
-            ФИО: ${player.fullName}
-            Пол: ${player.gender}
-            Курс: ${player.course}
-            Уровень сложности: ${player.difficultyLevel}/10
-            Дата рождения: $birthDateStr
-            Знак зодиака: ${player.zodiacSign}
-        """.trimIndent()
+        Регистрация завершена!
+        
+        ФИО: ${player.fullName}
+        Пол: ${player.gender}
+        Курс: ${player.course}
+        Уровень сложности: ${player.difficultyLevel}/10
+        Дата рождения: $birthDateStr
+        Знак зодиака: ${player.zodiacSign}
+    """.trimIndent()
 
         tvResult.text = resultText
-        tvResult.visibility = android.view.View.VISIBLE
+
+        // Показываем карточку
+        val cardResult = findViewById<MaterialCardView>(R.id.cardResult)
+        cardResult.visibility = View.VISIBLE
+
+        // Прокручиваем к результатам
+        val scrollView = findViewById<ScrollView>(R.id.scrollView)
+        scrollView.post {
+            scrollView.smoothScrollTo(0, cardResult.top)
+        }
     }
 }
